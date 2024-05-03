@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} Arxiv| Ro'yxatdan o'tish{% endblock title %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<section class="container login">
+    <h1 class="text-center mb-4">Ro'yxatdan o'tish</h1>
+    <div class="row mx-auto">
+        <div class="col-10 col-md-6 mx-auto">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form signup_form %}
+                <button type="submit" class="btn btn-success mb-3">Ro'yxatdan o'tish</button>
+                <p><span class="text-warning">Hisobingiz bormi ?</span> <a href="{% url "users:login" %}">Hisobga kirish !</a></p>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

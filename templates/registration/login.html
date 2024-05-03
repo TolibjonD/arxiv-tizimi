@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} Arxiv| Tizimga Kirish {% endblock title %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<section class="container login">
+    <h1 class="text-center mb-5">Tizimga kirish</h1>
+    <div class="row mx-auto">
+        <div class="col-10 col-md-4 mx-auto">
+            <form action="" method="post">
+                {% csrf_token %}
+                {% bootstrap_form login_form %}
+                <button type="submit" class="btn btn-success mb-3">Kirish</button>
+                <p><span class="text-warning">Hisobingiz yoqmi ?</span> <a href="{% url "users:register" %}">Ro'yxatdan o'ting !</a></p>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

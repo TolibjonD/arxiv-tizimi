@@ -1,0 +1,496 @@
+{% extends "base.html" %}
+{% block title %} Arxiv| Bosh sahifa {% endblock title %}
+{% load static %}
+{% block content %}
+
+<div class="hero_area">
+    <!-- slider section -->
+    <section class="slider_section long_section">
+      <div id="customCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="detail-box">
+                    <h1>
+                      Barcha ma'lumotlaringiz <br>
+                      Bitta tizimda
+                    </h1>
+                    <p>
+                      Ma'lumotlaringizni arxiv tizimida xavfsiz holatda saqlang va ulardan istalgan vaqtda foydalanishingiz mumkin bo'ladi.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Boshlash
+                      </a>
+                      <a href="" class="btn2">
+                        Biz haqimizda
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="img-box">
+                    <img src="{% static "images/slider-1-Photoroom.png-Photoroom.png" %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="detail-box">
+                    <h1>
+                      Barcha kerakli <br>
+                      fayllarni shu yerdan toping
+                    </h1>
+                    <p>
+                      Ilmiy ishlar, darsliklar va rasmiy hujjatlar shunga o'xshash kerakli resurslarni izlash va yuklab olish uchun aynan kerakli tizim...!
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Izlash
+                      </a>
+                      <a href="" class="btn2">
+                        Biz haqimizda
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="img-box">
+                    <img src="{% static "images/slider-2-Photoroom.png-Photoroom.png" %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="detail-box">
+                    <h1>
+                      Dasturchilar<br>
+                      uchun tizim
+                    </h1>
+                    <p>
+                      Yosh dasturchi talabalar uchun kerakli va foydali bo'lgan tizim, chunki siz bu yerda dasturlar va ulaning kodlarini topishingiz va muammolarning yechimiga duch kelishingiz mumkin...!
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Boshlash
+                      </a>
+                      <a href="" class="btn2">
+                        Biz haqimizda
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="img-box">
+                    <img src="{% static "images/slider-3-Photoroom.png-Photoroom.png" %}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel" data-slide-to="1"></li>
+          <li data-target="#customCarousel" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </section>
+    <!-- end slider section -->
+</div>
+
+ <!-- xizmatlar section -->
+
+ <section class="furniture_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Bizning xizmatlar
+      </h2>
+      <p>
+        Bizda ko'plab turdagi fayllarni saqlash imkoniyatlari mavjud va ularni yuklab olishingiz ham mumkin !
+      </p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-4">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static "images/f1.png" %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Fayllarni arxiv tizimiga joylash
+            </h5>
+            <div class="price_box">
+              <h6 class="price_heading">
+                <span>1kun/</span> 100 file
+              </h6>
+              <a href="">
+                Boshlash
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static "images/f2.png" %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Fayllarni yuklab olish
+            </h5>
+            <div class="price_box">
+              <h6 class="price_heading">
+                <span>1 kun/</span> Cheksiz
+              </h6>
+              <a href="">
+                Boshlash
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static "images/f3.png" %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              PDF fayllar
+            </h5>
+            <div class="price_box">
+              <h6 class="price_heading">
+                <span>25</span> MB
+              </h6>
+              <a href="">
+                Boshlash
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static "images/f4.png" %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Office fayllari
+            </h5>
+            <div class="price_box">
+              <h6 class="price_heading">
+                <span>20</span> MB
+              </h6>
+              <a href="">
+                Boshlash
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static "images/f5.png" %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Boshqa fayllar
+            </h5>
+            <div class="price_box">
+              <h6 class="price_heading">
+                <span>10</span> MB
+              </h6>
+              <a href="">
+                Boshlash
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static "images/f6.png" %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Rasmlar
+            </h5>
+            <div class="price_box">
+              <h6 class="price_heading">
+                <span>8</span> MB
+              </h6>
+              <a href="">
+                Boshlash
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- end xizmatlar section -->
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding long_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static "images/about-img-Photoroom.png-Photoroom.png" %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Biz haqimizda
+              </h2>
+            </div>
+            <p>
+              Bizning loyiha hozirda yangi va zamonaviy loyihalardan hisoblanadi. Bulut tizimlari va katta ma'lumotlar bilan ishlar, fayllar boshqaruvi va tizimlashgan kutubxona kabi xizmatlarni taklif qilamiz. Loyiha hozirda <spa class="text-danger fw-bold">TEST</spa> rejimida ishlamoqda !
+              Loyiha haqida <span class="text-warning">batafsil ma'lumot</span> olish uchun biz bilan bog'laning. Loyiha uchun <span class="text-warning">sponsor</span> bo'lish istagida bo'lganlar ham shu jumladan.
+            </p>
+            <a href="#contact">
+              Bog'lanish
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- blog section -->
+
+  <section class="blog_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Bizning qobiliyatlar
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static "images/b1.png" %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Grafik dizayn
+              </h5>
+              <p>
+                Bizda shuningdek yuqori tajribaga ega va sifatli xizmat ko'rsatuvchi grafik dizaynerlarimiz ham mavjud.
+              </p>
+              <a href="#contact">
+                Bog'lanish
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static "images/b2.jpg" %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Chet tillari
+              </h5>
+              <p>
+                Bizda shuningdek chet tillarida erkin suhbatlasha oladigan talabalarimiz ham mavjud.
+              </p>
+              <a href="#contact">
+                Bog'lanish
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static "images/b3.jpg" %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Qobiliyatli dasturchilar
+              </h5>
+              <p>
+                Shuningdek bizda dasturlashning turli xil sohalarida faoliyat yuritib kelayotgan dasturchi talabalarimiz ham mavjud.
+              </p>
+              <a href="#contact">
+                Bog'lanish
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end blog section -->
+
+   <!-- client section -->
+
+   <section class="client_section layout_padding-bottom">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Loyiha yaratuvchilari
+        </h2>
+      </div>
+      <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-md-11 col-lg-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{% static "images/men.jpg" %}" alt="" />
+                  </div>
+                  <div class="detail-box">
+                    <div class="name">
+                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+                      <h6>
+                        Tolibjon Saidkodirov
+                      </h6>
+                    </div>
+                    <p>
+                     Tolibjon Saidkodirov yosh dasturchi. Backend va Frontend yo'nalishlarida o'z faoliyatni olib boradi. U loyihaning asosiy yaratuvchi hisoblanadi.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-11 col-lg-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{% static "images/te-2.webp" %}" alt="" />
+                  </div>
+                  <div class="detail-box">
+                    <div class="name">
+                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+                      <h6>
+                        Tolibjon Saidkodirov
+                      </h6>
+                    </div>
+                    <p>
+                      It is a long established fact that a reader will be
+                      distracted by the readable cIt is a long established fact
+                      that a reader will be distracted by the readable 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col-md-11 col-lg-10 mx-auto">
+                <div class="box">
+                  <div class="img-box">
+                    <img src="{% static "images/client.jpg" %}" alt="" />
+                  </div>
+                  <div class="detail-box">
+                    <div class="name">
+                      <i class="fa fa-quote-left" aria-hidden="true"></i>
+                      <h6>
+                        Siaalya
+                      </h6>
+                    </div>
+                    <p>
+                      It is a long established fact that a reader will be
+                      distracted by the readable cIt is a long established fact
+                      that a reader will be distracted by the readable
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel_btn-container">
+          <a class="carousel-control-prev" href="#carouselExample2Controls" role="button" data-slide="prev">
+            <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExample2Controls" role="button" data-slide="next">
+            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end client section -->
+        
+  <!-- contact section -->
+  <section class="contact_section  long_section" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <div class="heading_container">
+              <h2>
+                Aloqa uchun
+              </h2>
+            </div>
+            <form action="">
+              <div>
+                <input type="text" placeholder="Ismingiz" />
+              </div>
+              <div>
+                <input type="text" placeholder="Telefoningiz" />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Xabar qoldiring..." />
+              </div>
+              <div class="btn_box">
+                <button>
+                  YUBORISH
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12044.50926585263!2d71.63341290853462!3d41.00058647486615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb4b872becc29b%3A0xf429ffdd938d2cd!2sNamangan%20muhandislik-qurilish%20instituti!5e0!3m2!1sen!2s!4v1714713720292!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+
+
+{% endblock content %}
