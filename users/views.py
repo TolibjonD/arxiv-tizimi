@@ -52,7 +52,7 @@ class LogOutView(View):
         return redirect("home")
     
 
-class ProfilePageView(View, LoginRequiredMixin):
+class ProfilePageView(LoginRequiredMixin,View):
     def get(self, request):
         user = request.user
         context = {
