@@ -58,7 +58,9 @@
                 <i class="fa-solid fa-folder"></i>
             </div>
             <div class="card-footer">
-                <input class="edit_folder_name" readonly type="text" value="{{ folder.folder_name|truncatechars:20 }}">
+                <a href="{% url "arxiv:files_list" folder.id %}">
+                    <input class="edit_folder_name" readonly type="text" value="{{ folder.folder_name|truncatechars:20 }}">
+                </a>
                 <div class="collapse" id="collapseExample{{folder.id}}">
                     <div class="card card-body" style="height: 60px; width: 100%;">
                         <form action="{% url "arxiv:folders" %}" method="get">
