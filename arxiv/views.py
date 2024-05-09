@@ -120,7 +120,7 @@ class FilesView(LoginRequiredMixin, View):
 
 class MainPageView(LoginRequiredMixin, View):
     def get(self, request):
-        files = Files.objects.filter(Q(is_deleted=False) & Q(file_status="PUBLIC"))
+        files = Files.objects.filter(Q(is_deleted=False) & Q(file_status="PUBLIC")).order_by("-created_at")
         for file in files:
             file.file_type = str(file.file_type).split('/')[-1]
         context = {
