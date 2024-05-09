@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block title %} Saidkodirov| Arxiv bo'limi {% endblock title %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+    <section id="category" class="category bg-light border">
+        <div class="add_icon">
+            <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+        </div>
+         <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="{% url "arxiv:files_list" folder.id %}" method="post" enctype="multipart/form-data">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Yangi fayl joylash</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {% csrf_token %}
+                {% bootstrap_form file_form %}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                <button type="submit" class="btn btn-primary">Saqlash</button>
+              </div>
+            </div>
+          </div>
+    </form>
+  </div>    
+        <div class="section__header">
+            <h4>
+                <i class="fa-solid fa-folder text-secondary"></i> {{ folder.folder_name }}
+            </h4>
+        </div>
+        <hr>
+       <div class="section__body">
+        
+        {% if files %}
+        {% for file in files %}
+        <div class="card">
+            <div class="card-header">
+                <div class="card_features">
+                    <a href="">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Ko'rish</span>
+                        
+                    </a>
+                    <a href="{{ file.file.url }}" download>
+                        <i class="fa-solid fa-circle-down"></i>
+                        <span>Yuklab olish</span>
+                        
+                    </a>
+                    {% if file.file_status == 'PUBLIC' %}
+                    <a href="?change_file_status_to_private_id={{file.id}}">
+                        <i class="fa-solid fa-minus"></i>
+                        <span>Berkitish</span>
+                    </a>
+                    {% else %}
+                    <a href="?change_file_status_to_public_id={{file.id}}">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <span>Ommaviy qilish</span>
+                    </a>
+                    {% endif %}
+                    <a href="">
+                        <i class="fa-solid fa-pencil"></i> 
+                        <span>Tahrirlash</span>
+                        
+                    </a>
+                    <a href="?delete_file_id={{file.id}}" onclick="return confirm('Rostan ham faylni o`chirasizmi ? 😮')">
+                        <i class="fa-solid fa-trash"></i>
+                        <span>O'chirish</span>
+                        
+                    </a>
+                </div>
+                <span class="card_features__icon">
+                    {% if file.file_status == 'PRIVATE' %}
+                    <i class="fa-solid fa-lock text-success"></i>
+                    {% else %}
+                    <i class="fa-solid fa-bullhorn text-success"></i>
+                    {% endif %}
+                    ...
+                </span>
+            </div>
+            <div class="card-body" style="display:flex; flex-direction: column;">
+                <div class="icon_file">
+                    <span>{{ file.file_type }}</span>
+                    <i class="fa-regular fa-file"></i>
+                </div>
+                <span class="bg-light text-secondary position-absolute rounded" style="font-size: 15px; top: 50px; right: 2px;">
+                    {{ file.file.size|filesizeformat }}
+                </span>
+            </div>
+            <div class="card-footer">
+                {{ file.file_name|truncatechars:20 }}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="card-body d-flex flex-column justify-content-center align-items-center" style="height: 350px;">
+            <p>Bu papka bo'm bo'sh 😔...</p>
+                                <img src="{% static "animation/no-data.gif" %}" alt="" style="width: 320px;">
+                                
+                            </div>
+        {% endif %}
+       
+       </div>
+    </section>
+
+<script>
+    const cardFeatures = document.querySelectorAll(".card_features");
+    const card_features__icon = document.querySelectorAll(".card_features__icon");
+    card_features__icon.forEach((icon, index) => {
+        icon.addEventListener("click", () => {
+            cardFeatures[index].classList.toggle("show");
+        });
+    });
+
+</script>
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %} Saidkodirov| Arxiv bo'limi {% endblock title %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+    <section id="category" class="category bg-light border">
+        <div class="section__header">
+            Eng so'nggi yuklangan ochiq fayllar
+        </div>
+        <hr>
+       <div class="section__body">
+        
+        {% if files %}
+        {% for file in files %}
+        <div class="card">
+            <div class="card-header">
+                <div class="card_features">
+                    <a href="">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Ko'rish</span>
+                        
+                    </a>
+                    <a href="{{ file.file.url }}" download>
+                        <i class="fa-solid fa-circle-down"></i>
+                        <span>Yuklab olish</span>
+                        
+                    </a>
+                </div>
+                <span class="card_features__icon">
+                    {% if file.file_status == 'PRIVATE' %}
+                    <i class="fa-solid fa-lock text-success"></i>
+                    {% else %}
+                    <i class="fa-solid fa-bullhorn text-success"></i>
+                    {% endif %}
+                    ...
+                </span>
+            </div>
+            <div class="card-body" style="display:flex; flex-direction: column;">
+                <div class="icon_file">
+                    <span>{{ file.file_type }}</span>
+                    <i class="fa-regular fa-file"></i>
+                    <div class="file_owner">
+                         <img src="{{ file.file_owner.photo.url }}" alt="" style="width: 20px;">
+                        <span>@{{ file.file_owner.username }}</span>
+                       
+                    </div>
+                </div>
+
+                <span class="bg-light text-secondary position-absolute rounded" style="font-size: 15px; top: 50px; right: 2px;">
+                    {{ file.file.size|filesizeformat }}
+                </span>
+            </div>
+            <div class="card-footer">
+                {{ file.file_name|truncatechars:20 }}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="card-body d-flex flex-column justify-content-center align-items-center" style="height: 350px;">
+            <p>Arxivda ommaviy ochiq fayllar mavjud emas 😔...</p>
+                                <img src="{% static "animation/no-data.gif" %}" alt="" style="width: 320px;">
+                                
+                            </div>
+        {% endif %}
+       
+       </div>
+    </section>
+
+<script>
+    const cardFeatures = document.querySelectorAll(".card_features");
+    const card_features__icon = document.querySelectorAll(".card_features__icon");
+    card_features__icon.forEach((icon, index) => {
+        icon.addEventListener("click", () => {
+            cardFeatures[index].classList.toggle("show");
+        });
+    });
+
+</script>
+{% endblock content %}

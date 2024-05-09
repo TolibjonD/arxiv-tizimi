@@ -1,9 +1,33 @@
+
+
 .navbar img {
     width: 70px;
 }
 *,** {
     scroll-behavior: smooth;
 }
+.message_alert{
+    transition: all .375s ease-in-out;
+}
+.message_alert.close {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0);
+}
+#edit_folder_btn{
+    cursor: pointer;
+}
+.edit_folder_name {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 1px;
+    border-radius: 8px;
+    color: #222;
+}
+
 .navbar {
     margin: 5px 50px;
     border-radius: 7px;

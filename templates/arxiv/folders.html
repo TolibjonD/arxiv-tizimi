@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %} Saidkodirov| Arxiv bo'limi {% endblock title %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+    <section id="category" class="category bg-light border">
+        <div class="add_icon">
+            <i class="fa-solid fa-plus" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+        </div>
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="" method="post" enctype="multipart/form-data">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Yangi papka qo'shish</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {% csrf_token %}
+                {% bootstrap_form folder_form %}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Yopish</button>
+                <button type="submit" class="btn btn-primary">Saqlash</button>
+              </div>
+            </div>
+          </div>
+    </form>
+  </div>    
+       <div class="section__body">
+       
+        {% if folders %}
+        
+        {% for folder in folders %}
+        <div class="card">
+            <div class="card-header">
+                <div class="card_features">
+                    <a href="{% url "arxiv:files_list" folder.id %}">
+                        <i class="fa-solid fa-eye"></i>
+                        <span>Ochish</span>
+                        
+                    </a>
+                    <a id="edit_folder_btn" data-bs-toggle="collapse" href="#collapseExample{{folder.id}}" role="button" aria-expanded="false" aria-controls="collapseExample{{folder.id}}">
+                        <i class="fa-solid fa-pencil"></i> 
+                        <span>Tahrirlash</span>
+                    </a>
+                    <a href="{% url "arxiv:folders" %}?delete_id={{folder.id}}" onclick="return confirm('Rostan ham papkani o`chirasizmi ?')">
+                        <i class="fa-solid fa-trash"></i>
+                        <span>O'chirish</span>
+                        
+                    </a>
+                </div>
+                <span class="card_features__icon">...</span>
+            </div>
+            <div class="card-body">
+                <i class="fa-solid fa-folder"></i>
+            </div>
+            <div class="card-footer">
+                <input class="edit_folder_name" readonly type="text" value="{{ folder.folder_name|truncatechars:20 }}">
+                <div class="collapse" id="collapseExample{{folder.id}}">
+                    <div class="card card-body" style="height: 60px; width: 100%;">
+                        <form action="{% url "arxiv:folders" %}" method="get">
+                            <input class="edit_folder_name" name="edit_folder_name" type="text" value="{{ folder.folder_name }}">
+                            <input class="edit_folder_name_id" name="edit_folder_name_id" type="hidden" value="{{ folder.id }}">
+                        <button class="btn btn-success" type="submit">Saqlash</button>
+                        </form>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        {% endfor %}
+        {% else %}
+        <div class="card-body d-flex flex-column justify-content-center align-items-center" style="height: 350px;">
+        <p>Sizda hali papkalar mavjud emas...</p>
+                            <img src="{% static "animation/no-data.gif" %}" alt="" style="width: 320px;">
+                            
+                        </div>
+        {% endif %}
+       
+       </div>
+    </section>
+
+<script>
+    const cardFeatures = document.querySelectorAll(".card_features");
+    const icons = document.querySelectorAll(".card_features__icon");
+   
+    icons.forEach((icon, index) => {
+        icon.addEventListener("click", (e)=> {
+            console.log(e.target.className)
+            if(e.target.className === "card_features__icon"){
+                cardFeatures[index].classList.toggle("show");
+            }
+        });
+    });
+
+</script>
+
+{% endblock content %}

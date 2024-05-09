@@ -5,6 +5,12 @@ function getYear() {
     document.querySelector("#displayYear").innerHTML = currentYear;
 }
 
+const alert = document.querySelector(".message_alert");
+function closeAlert() {
+    alert.classList.add("close");
+}
+setTimeout(closeAlert, 4000) 
+
 getYear();
 
 
